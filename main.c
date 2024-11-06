@@ -11,6 +11,7 @@ int main() {
     insert(table, 6789, 9);
     insert(table, 111, 1);
     insert(table, 125, 5);
+    insert(table, 127, 6);
 
     printTable(table);
 

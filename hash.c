@@ -90,9 +90,9 @@ void insert(HashTable *table, int key, int value) {
     } else {
         Entry *current = table->buckets[bucketIndex];
         while (current->next != NULL) {
-            current = current->next;  // Traverse to the end of the list
+            current = current->next;
         }
-        current->next = newEntry;  // Link the new entry
+        current->next = newEntry;
     }
 
     table->count++;
@@ -106,23 +106,22 @@ int search(HashTable *table, int key) {
     Entry *current = table->buckets[bucketIndex];
     while (current != NULL) {
         if (current->key == key) {
-            return current->value;  // Return the value associated with the key
+            return current->value;
         }
-        current = current->next;  // Move to the next entry in the linked list
+        current = current->next;
     }
 
     printf("Key %d not found in the hash table.\n", key);
-    return -1;  // or any value indicating "not found"
+    return -1;
 }
 
 void freeTable(HashTable *table) {
-    // Traverse through all the buckets
     for (int i = 0; i < table->size; i++) {
         Entry *entry = table->buckets[i];
         while (entry != NULL) {
             Entry *temp = entry;
-            entry = entry->next;  // Move to the next entry
-            free(temp);  // Free the current entry
+            entry = entry->next;
+            free(temp);
         }
     }
 
@@ -140,13 +139,13 @@ void printTable(HashTable *table) {
         
         Entry *entry = table->buckets[i];
         if (entry == NULL) {
-            printf("NULL\n");  // No entries in this bucket
+            printf("NULL\n");
         } else {
             while (entry != NULL) {
                 printf("{key: %d, value: %d} -> ", entry->key, entry->value);
-                entry = entry->next;  // Move to the next entry
+                entry = entry->next;
             }
-            printf("NULL\n");  // End of the linked list
+            printf("NULL\n");
         }
     }
 }

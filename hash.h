@@ -9,15 +9,15 @@
 #define RESIZE_FACTOR 2
 
 typedef struct Entry {
-    int key;       // The original number
-    int value;     // Could store the last digit or some related numeric value
-    struct Entry *next; // Pointer to the next entry for collision handling
+    int key;
+    int value;
+    struct Entry *next;
 } Entry;
 
 typedef struct HashTable {
-    Entry **buckets; // Array of pointers to Entry nodes
-    int size;        // Number of buckets
-    int count;       // Number of entries
+    Entry **buckets;
+    int size;
+    int count;
 } HashTable;
 
 unsigned int hashFunction(int key, int size);
@@ -28,4 +28,4 @@ int search(HashTable *table, int key);
 void freeTable(HashTable *table);
 void printTable(HashTable *table);
 
-#endif // HASH_H
+#endif
